@@ -3,6 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable, :omniauthable,
          :recoverable, :rememberable, :validatable, :omniauth_providers => [:facebook]
+         has_many :tickets
 
   def self.new_with_session(params, session)
     super.tap do |user|
