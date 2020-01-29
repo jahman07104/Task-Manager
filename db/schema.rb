@@ -10,7 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_27_212420) do
+ActiveRecord::Schema.define(version: 2020_01_29_224843) do
+
+  create_table "ticket_troubleshooting_tasks", force: :cascade do |t|
+    t.integer "ticket_id", null: false
+    t.integer "troubleshooting_task_id", null: false
+    t.string "status"
+    t.text "notes"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["ticket_id"], name: "index_ticket_troubleshooting_tasks_on_ticket_id"
+    t.index ["troubleshooting_task_id"], name: "index_ticket_troubleshooting_tasks_on_troubleshooting_task_id"
+  end
+
+  create_table "tickets", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_tickets_on_user_id"
+  end
+
+  create_table "troubleshooting_tasks", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,4 +50,7 @@ ActiveRecord::Schema.define(version: 2020_01_27_212420) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "ticket_troubleshooting_tasks", "tickets"
+  add_foreign_key "ticket_troubleshooting_tasks", "troubleshooting_tasks"
+  add_foreign_key "tickets", "users"
 end
