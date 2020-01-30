@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ticket: one
+  troubleshooting_task: one
+  status: MyString
+  notes: MyText
+
+two:
+  ticket: two
+  troubleshooting_task: two
+  status: MyString
+  notes: MyText

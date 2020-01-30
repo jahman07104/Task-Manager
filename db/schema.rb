@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_29_224843) do
+ActiveRecord::Schema.define(version: 2020_01_30_184645) do
 
   create_table "ticket_troubleshooting_tasks", force: :cascade do |t|
     t.integer "ticket_id", null: false
@@ -27,6 +27,10 @@ ActiveRecord::Schema.define(version: 2020_01_29_224843) do
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "customer_name"
+    t.string "customer_address"
+    t.string "customer_phone_number"
+    t.text "customer_details"
     t.index ["user_id"], name: "index_tickets_on_user_id"
   end
 
