@@ -1,14 +1,6 @@
-<p id="notice"><%= notice %></p>
+<p><%= @ticket.customer_name %></p>
+<p><%= @ticket.customer_address %></p>
+<p><%= @ticket.customer_phone_number %></p>
+<p><%= @ticket.customer_details %></p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @list.description %>
-</p>
-
-<p>
-  <strong>Completed:</strong>
-  <%= @list.completed %>
-</p>
-
-<%= link_to 'Edit', edit_list_path(@list) %> |
-<%= link_to 'Back', lists_path %>
+<%= link_to 'Back', tickets_path %>

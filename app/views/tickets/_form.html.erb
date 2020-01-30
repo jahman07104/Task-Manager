@@ -1,5 +1,7 @@
 <%= simple_form_for @ticket do |f| %>
-  <%= f.input :username %>
-  <%= f.input :password %>
-  <%= f.button :submit %>
+  <%= f.input :customer_name %>
+  <%= f.input :customer_address %>
+  <%= f.input :customer_phone_number %>
+  <%= f.input :customer_details %>
+  <%= f.button :submit, class:'btn btn-primary' %>
 <% end %>
