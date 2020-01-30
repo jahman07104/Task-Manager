@@ -3,4 +3,19 @@
 <p><%= @ticket.customer_phone_number %></p>
 <p><%= @ticket.customer_details %></p>
 
+
+
 <%= link_to 'Back', tickets_path %>
+<%= link_to "Add Task", new_ticket_troubleshooting_task_path(ticket_id: @ticket.id), class:'btn btn-primary' %>
+
+<table class='table table-striped'>
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th></th>
+    </tr>
+  </thead>  
+  <tbody>
+    <%= render @troubleshooting_tasks %>
+  </tbody>
+</table>

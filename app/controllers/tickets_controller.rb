@@ -6,6 +6,7 @@ class TicketsController < ApplicationController
   end
 
   def show
+    @troubleshooting_tasks = @ticket.troubleshooting_tasks
   end 
   
   def new
