@@ -3,12 +3,12 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable, :omniauthable,
          :recoverable, :rememberable, :validatable, :omniauth_providers => [:facebook]
-  has_many :tickets
-  has_many :user_troubleshooting_tasks
+  has_many :tickets, dependent: :destroy
+  has_many :user_troubleshooting_tasks, dependent: :destroy
   has_many :troubleshooting_tasks, through: :user_troubleshooting_tasks
 
   validates :name, presence: true
-  
+
   def self.new_with_session(params, session)
     super.tap do |user|
       if data = session['devise.facebook_data'] && session['devise.facebook_data']['extra']['raw_info']

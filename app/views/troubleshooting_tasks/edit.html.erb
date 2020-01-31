@@ -1,5 +1,9 @@
 <h1>Edit Task</h1>
+<% if @ticket.user == current_user %>
+  <%= render 'form' %>
+<% end %>
 
-<%= render 'form' %>
+<%= render 'user_troubleshooting_tasks/task_details' %>
 
 <%= link_to 'Back', ticket_path(@ticket) %>
+

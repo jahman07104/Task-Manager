@@ -20,7 +20,7 @@ class TroubleshootingTasksController < ApplicationController
   end
 
   def edit
-   
+    @user_troubleshooting_task = current_user.user_troubleshooting_tasks.find_by(troubleshooting_task: @troubleshooting_task)
   end
 
   def update

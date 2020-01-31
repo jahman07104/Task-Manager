@@ -5,5 +5,7 @@ Rails.application.routes.draw do
     resources :troubleshooting_tasks
   end
 
+  resources :user_troubleshooting_tasks, only: :update
+
   root to: 'tickets#index'
 end

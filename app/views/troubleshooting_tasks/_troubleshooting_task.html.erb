@@ -1,11 +1,15 @@
 <% ticket = troubleshooting_task.ticket %>
+<% user_troubleshooting_task = troubleshooting_task.user_troubleshooting_tasks.find_by(user: current_user) %>
 
 <tr>
   <td><%= troubleshooting_task.description %></td>
+  <td><%= user_troubleshooting_task&.status %> </td>
   <td>
     <%= link_to 'View', ticket_troubleshooting_task_path(ticket_id: ticket.id, id: troubleshooting_task.id) %>
     <%= link_to 'Edit', edit_ticket_troubleshooting_task_path(ticket_id: ticket.id, id: troubleshooting_task.id) %>
-    <%= link_to 'Delete', ticket_troubleshooting_task_path(ticket_id: ticket.id, id: troubleshooting_task.id), method: :delete,
-    data: { confirm: 'Are you sure?' } %>
+    <% if ticket.user == current_user %>
+        <%= link_to 'Delete', ticket_troubleshooting_task_path(ticket_id: ticket.id, id: troubleshooting_task.id),
+        method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% end %>
   </td>
 </tr>

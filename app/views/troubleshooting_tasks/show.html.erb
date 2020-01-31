@@ -1,7 +1,26 @@
+<% user_tasks = @troubleshooting_task.user_troubleshooting_tasks %>
 
+<p>This task has <%= pluralize(user_tasks.count, 'user') %> currently assigned </p>
 
 <p><%= @troubleshooting_task.description %></p>
 
+<table class='table table-striped'>
+  <thead>
+    <tr>
+      <th>User </th>
+      <th>Status</th>
+    </tr>
+  </thead>  
+  <tbody>
+    <% user_tasks.each do |user_task| %>
+      <tr>
+        <td><%= user_task.user.name %></td>
+         <td><%= user_task.status %></td>
+      </tr>
+    <% end %> 
+   
+  </tbody>
+</table>
+
 <p><%= link_to 'Back', ticket_path(@ticket) %></p>
 
- <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
