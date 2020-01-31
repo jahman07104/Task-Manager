@@ -1,7 +1,6 @@
-<% if @user_troubleshooting_task %>
-  <%= simple_form_for @user_troubleshooting_task, method: :put do |f| %>
-    <%= f.input :notes %>
-    <%= f.input :status, collection: UserTroubleshootingTask::STATUS %>
-    <%= f.button :submit, class:'btn btn-primary' %>
-  <% end %>
+<%= simple_form_for @user_troubleshooting_task, method: :put do |f| %>
+  <%= f.input :notes %>
+  <%= f.input :status, collection: UserTroubleshootingTask::STATUS %>
+  <%= f.button :submit, class:'btn btn-primary' %>
 <% end %>
+
