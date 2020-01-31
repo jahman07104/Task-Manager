@@ -14,8 +14,8 @@
     <% flash.each do |name, msg| %>
      <%= content_tag(:div, msg, class: "alert alert-info") %>
     <% end %>
-    <% unless current_user %>
-    <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+    <% if current_user %>
+      <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
     <% end %>
     
     <div class="container">

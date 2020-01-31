@@ -4,6 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :omniauthable,
          :recoverable, :rememberable, :validatable, :omniauth_providers => [:facebook]
   has_many :tickets
+  has_many :user_troubleshooting_tasks
+  has_many :troubleshooting_tasks, through: :user_troubleshooting_tasks
+  
 
   def self.new_with_session(params, session)
     super.tap do |user|

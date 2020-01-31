@@ -10,18 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_30_203555) do
-
-  create_table "ticket_troubleshooting_tasks", force: :cascade do |t|
-    t.integer "ticket_id", null: false
-    t.integer "troubleshooting_task_id", null: false
-    t.string "status"
-    t.text "notes"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["ticket_id"], name: "index_ticket_troubleshooting_tasks_on_ticket_id"
-    t.index ["troubleshooting_task_id"], name: "index_ticket_troubleshooting_tasks_on_troubleshooting_task_id"
-  end
+ActiveRecord::Schema.define(version: 2020_01_31_172819) do
 
   create_table "tickets", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -42,6 +31,17 @@ ActiveRecord::Schema.define(version: 2020_01_30_203555) do
     t.index ["ticket_id"], name: "index_troubleshooting_tasks_on_ticket_id"
   end
 
+  create_table "user_troubleshooting_tasks", force: :cascade do |t|
+    t.integer "troubleshooting_task_id", null: false
+    t.string "status"
+    t.text "notes"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
+    t.index ["troubleshooting_task_id"], name: "index_user_troubleshooting_tasks_on_troubleshooting_task_id"
+    t.index ["user_id"], name: "index_user_troubleshooting_tasks_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -57,7 +57,6 @@ ActiveRecord::Schema.define(version: 2020_01_30_203555) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "ticket_troubleshooting_tasks", "tickets"
-  add_foreign_key "ticket_troubleshooting_tasks", "troubleshooting_tasks"
   add_foreign_key "tickets", "users"
+  add_foreign_key "user_troubleshooting_tasks", "troubleshooting_tasks"
 end
