@@ -6,8 +6,9 @@ class User < ApplicationRecord
   has_many :tickets
   has_many :user_troubleshooting_tasks
   has_many :troubleshooting_tasks, through: :user_troubleshooting_tasks
-  
 
+  validates :name, presence: true
+  
   def self.new_with_session(params, session)
     super.tap do |user|
       if data = session['devise.facebook_data'] && session['devise.facebook_data']['extra']['raw_info']
