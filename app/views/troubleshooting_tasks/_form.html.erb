@@ -1,6 +1,5 @@
 <%= simple_form_for [@ticket, @troubleshooting_task] do |f| %>
   <%= f.input :description %>
+  <%= f.association :users, label_method: :name, value_method: :id, as: :check_boxes %>
   <%= f.button :submit, class:'btn btn-primary' %>
-  <%= f.association :users, as: :check_boxes %>
-
 <% end %>

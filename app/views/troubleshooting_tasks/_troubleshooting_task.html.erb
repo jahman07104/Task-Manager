@@ -1,10 +1,11 @@
-<tr>
+<% ticket = troubleshooting_task.ticket %>
 
+<tr>
   <td><%= troubleshooting_task.description %></td>
   <td>
-    <%= link_to 'View', ticket_troubleshooting_task_path(ticket_id: @ticket.id, id: troubleshooting_task.id) %>
-    <%= link_to 'Edit', edit_ticket_troubleshooting_task_path(ticket_id: @ticket.id, id: troubleshooting_task.id) %>
-    <%= link_to 'Delete', ticket_troubleshooting_task_path(ticket_id: @ticket.id, id: troubleshooting_task.id), method: :delete,
+    <%= link_to 'View', ticket_troubleshooting_task_path(ticket_id: ticket.id, id: troubleshooting_task.id) %>
+    <%= link_to 'Edit', edit_ticket_troubleshooting_task_path(ticket_id: ticket.id, id: troubleshooting_task.id) %>
+    <%= link_to 'Delete', ticket_troubleshooting_task_path(ticket_id: ticket.id, id: troubleshooting_task.id), method: :delete,
     data: { confirm: 'Are you sure?' } %>
   </td>
 </tr>

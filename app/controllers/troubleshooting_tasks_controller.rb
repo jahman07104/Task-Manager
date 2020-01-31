@@ -40,7 +40,7 @@ class TroubleshootingTasksController < ApplicationController
   private 
 
   def troubleshooting_task_params
-    params.require(:troubleshooting_task).permit(:description)
+    params.require(:troubleshooting_task).permit(:description, user_ids: [])
   end
 
   def find_ticket

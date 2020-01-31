@@ -3,6 +3,8 @@ class TicketsController < ApplicationController
 
   def index
     @tickets = Ticket.all
+    @troubleshooting_tasks = current_user.troubleshooting_tasks
+
   end
 
   def show
