@@ -1,2 +1,9 @@
+$navbar-height: 200px;
+$jumbotron-bg: rgb(174, 255, 0);
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.center{
+  text-align:center;
+}

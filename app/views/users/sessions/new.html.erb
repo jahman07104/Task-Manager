@@ -1,4 +1,7 @@
-<h2>Sign in</h2>
+<div class="jumbotron">
+  <h1>Welcome to the technician Sign In page </h1>
+  <h2>Sign in with email and password</h2>
+</div>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="form-group">
@@ -20,9 +23,7 @@
 
   <div class="actions">
     <%= f.submit 'Sign in', class:'btn btn-primary' %>
-    
-     
-  </div>
+    </div>
 <% end %>
 
 <%= render "users/shared/links" %>

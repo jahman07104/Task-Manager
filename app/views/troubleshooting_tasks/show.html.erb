@@ -3,3 +3,5 @@
 <p><%= @troubleshooting_task.description %></p>
 
 <p><%= link_to 'Back', ticket_path(@ticket) %></p>
+
+ <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
