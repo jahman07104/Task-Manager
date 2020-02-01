@@ -4,6 +4,7 @@ class UserTroubleshootingTask < ApplicationRecord
 
   STATUS = ['in progress', 'pending', 'canceled', 'completed'].freeze
 
-  validates :status, inclusion: { in: STATUS }
-  validates :status, presence: true
+  validates :status, inclusion: { in: STATUS }, presence: true, on: :update
+ 
+
 end

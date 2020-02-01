@@ -2,9 +2,6 @@ class UserTroubleshootingTasksController < ApplicationController
   def update
     @user_troubleshooting_task = UserTroubleshootingTask.find_by(id: params[:id])
     @ticket = @user_troubleshooting_task.troubleshooting_task.ticket
-
-
-
     if @user_troubleshooting_task.update(task_params)
       redirect_to root_path, notice: 'task updated'
     else

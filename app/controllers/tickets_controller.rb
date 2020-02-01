@@ -2,7 +2,8 @@ class TicketsController < ApplicationController
   before_action :find_ticket, only: [:edit, :update, :destroy, :show]
 
   def index
-    @tickets = Ticket.all
+    @tickets =current_user.tickets
+
     @troubleshooting_tasks = current_user.troubleshooting_tasks
 
   end

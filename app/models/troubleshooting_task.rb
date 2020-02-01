@@ -4,4 +4,6 @@ class TroubleshootingTask < ApplicationRecord
   has_many :users, through: :user_troubleshooting_tasks
 
   validates :description, presence: true
+  
+
 end
