@@ -2,10 +2,8 @@ class TicketsController < ApplicationController
   before_action :find_ticket, only: [:edit, :update, :destroy, :show]
 
   def index
-    @tickets =current_user.tickets
-
+    @tickets = current_user.tickets.sort_by(&:customer_name)
     @troubleshooting_tasks = current_user.troubleshooting_tasks
-
   end
 
   def show

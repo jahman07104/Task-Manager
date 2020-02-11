@@ -1,13 +1,13 @@
 <% user_tasks = @troubleshooting_task.user_troubleshooting_tasks %>
 
-<p>This task has <%= pluralize(user_tasks.count, 'user') %> currently assigned </p>
+<p>This task has <%= pluralize(user_tasks.count, 'Technician') %> currently assigned </p>
 
 <p><%= @troubleshooting_task.description %></p>
 
 <table class='table table-striped'>
   <thead>
     <tr>
-      <th>User </th>
+      <th>Technician </th>
       <th>Status</th>
     </tr>
   </thead>  

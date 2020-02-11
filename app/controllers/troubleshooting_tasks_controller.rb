@@ -12,7 +12,7 @@ class TroubleshootingTasksController < ApplicationController
         redirect_to ticket_path(@ticket), notice: "task succesfully created"
     else
       pp @troubleshooting_task.errors.full_messages
-pp params
+      pp params
       render :new
     end
   end
